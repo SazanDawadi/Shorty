@@ -1,0 +1,47 @@
+nav{
+    background: transparent;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+}
+.link_icon{
+    color:#43927a;
+    font-size: 2rem;
+}
+.nav_link{
+    display: flex;
+    flex-direction:row;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    padding-left: 50px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    text-decoration: none;
+    color: rgb(41, 41, 41);
+}
+.nav_link p{
+    font-size: 1.4rem;
+    font-weight:normal;
+}
+
+.ham_menu{
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding-right: 50px;
+    padding-top: 25px;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 480px) {
+    .nav_link{
+        padding-left: 20px;
+    }
+    .ham_menu{
+        padding-right: 20px;
+    }
+}

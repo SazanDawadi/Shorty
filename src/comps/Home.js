@@ -5,6 +5,7 @@ import { MdCheck } from "react-icons/md"
 import "./home.css";
 import shrtCode from "../api/shrtcode";
 import {CopyToClipboard} from 'react-copy-to-clipboard';
+import Banner from "../img/Banner.svg";
 
 
 function Home() {
@@ -39,9 +40,11 @@ function Home() {
 
     return (
         <div className = 'container'>
-            <h1>Shorty Urls</h1>
+            <img src={Banner} alt="React Logo" />
+            <h1>Shorten Any Links</h1>
+            <p>Build and protect your brand using powerful recognizable short link.</p>
             <form onSubmit={(e) => handleSubmit(e)} autoComplete='off' >
-                <TextField id = "home_input" label = "Enter Your URL" variant = "outlined" value = {url}
+                <TextField id = "home_input" label = "Type or Paste your link" variant = "outlined" value = {url}
                 onChange = {(e) =>{
                     setUrl(e.target.value)
                 }}
@@ -49,8 +52,8 @@ function Home() {
 
 
                 {!isLoading && (
-                    < Button id = "home_btn" variant = "contained" color = "primary" 
-                    onClick = {(e) => handleSubmit(e)}>Shorten URL</Button>
+                    < Button id = "home_btn" variant = "contained" color = "lime" 
+                    onClick = {(e) => handleSubmit(e)}>Shorten</Button>
                 )}
 
 
