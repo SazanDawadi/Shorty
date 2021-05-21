@@ -1,27 +1,80 @@
-import React, {useState} from 'react'
+import React, {useState} from 'react';
+import { Button, TextField, LinearProgress} from "@material-ui/core";
+import { FaRegClone } from 'react-icons/fa';
+import { MdCheck } from "react-icons/md"
 import "./home.css";
-import {db} from "../firebase";
-import {v4 as uuidv4} from "uuid";
+import shrtCode from "../api/shrtcode";
+import {CopyToClipboard} from 'react-copy-to-clipboard';
+
 
 function Home() {
     const [url, setUrl] =  useState('');
-    let code = uuidv4();
-    const handelFormSumbit = async (e) =>{
+    const [shrtUrl,setShrtUrl] = useState('');
+    const[isLoading, setIsLoading] = useState(false);
+    const[isCopied, setIsCopied] = useState(false);
+
+    const handleSubmit = (e) => {
         e.preventDefault();
-        await db.collection("Urls").add({
-            url:url,
-            code:code,
-        });
-        alert("your url is http://localhost:3000/l/" + code)
+        getUrl();
+        setUrl('');
+        setShrtUrl('')
+        setIsCopied(false);
+
+        setIsLoading(!isLoading);
     }
 
+    const getUrl = async () => {
+        await shrtCode
+          .get(`shorten?url=${url}`)
+          .then((response) => {
+            setShrtUrl(response.data.result.short_link);
+            console.log(response.data.result.short_link);
+            setIsLoading(false);
+          })
+          .catch((error) => {
+            console.error(error);
+          });
+      };
+
+
     return (
-        <div>
+        <div className = 'container'>
             <h1>Shorty Urls</h1>
-            <form onSubmit = {handelFormSumbit} >
-                <input type = "text" value = {url} onChange = {(e ) => setUrl(e.target.value)}
-                placeholder = "Enter yor URL..." />
-                < button type = "sumbit">Shorten URL</button>
+            <form onSubmit={(e) => handleSubmit(e)} autoComplete='off' >
+                <TextField id = "home_input" label = "Enter Your URL" variant = "outlined" value = {url}
+                onChange = {(e) =>{
+                    setUrl(e.target.value)
+                }}
+                />
+
+
+                {!isLoading && (
+                    < Button id = "home_btn" variant = "contained" color = "primary" 
+                    onClick = {(e) => handleSubmit(e)}>Shorten URL</Button>
+                )}
+
+
+                {isLoading && (
+                    <LinearProgress className = "loader" />
+                )}
+
+                {shrtUrl && (
+                    <div className = "shorturl_container">
+                        <p>{shrtUrl}</p>
+                        <CopyToClipboard  text={shrtUrl}>
+                            <div>
+                                {!isCopied && (
+                                    <FaRegClone className = "copy_icon" onClick ={() => setIsCopied(!isCopied) } />
+                                )}
+                                {isCopied && (
+                                    <MdCheck className = "copied_icon" onClick ={() => setIsCopied(!isCopied) } />
+                                )}
+                            </div>
+                            
+                        </CopyToClipboard>
+                    </div>
+                    
+                )}
 
             </form>
         </div>
