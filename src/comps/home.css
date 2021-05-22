@@ -12,11 +12,16 @@
 
 
 .container h1{
-    font-size:2.5rem;
+    font-size:2.7rem;
     margin-bottom: 3px;
 }
 .container p{
     margin-top: 3px;
+    padding-left:5px;
+    padding-right: 5px;
+    letter-spacing: 0.02rem;
+    color:#6e7c76;
+    font-weight: 300;
 }
 .container img{
     height:250px;
@@ -24,6 +29,9 @@
 }
 .loader{
     margin-top:25px;
+}
+.cpy_msg{
+    margin-top: -10px;
 }
 
 form{
@@ -40,6 +48,9 @@ form{
     margin-bottom:20px;
     width:15vw;
     background-color: #43927a;
+    color:#fff;
+    font-size:1.1rem;
+    text-transform: initial;
 }
 .shorturl_container{
     display:flex;
@@ -47,7 +58,10 @@ form{
     justify-content: center;
     align-items: center;
 }
-
+.shorturl_container p{
+    font-size: 1.2rem;
+    font-weight: 500;
+}
 
 .copy_icon{
     margin-left: 20px;
@@ -72,9 +86,11 @@ form{
   }
 
 .display_error{
-    color: red;
     margin-top: 10px;
     margin-bottom: 0px;
+}
+.display_error p{
+    color: red !important;
 }
 
 
@@ -83,6 +99,9 @@ form{
     .container{
         width:80vw;
         margin:auto;
+    }
+    .container h1{
+        font-size: 2.39rem;
     }
     .container p{
         width:80vw;
@@ -98,12 +117,12 @@ form{
     }
     #home_btn{
         width:50vw;
-        text-transform: initial;
+  
     }
 
     .copy_icon, .copied_icon{
-        margin-left:-100px;
-        padding-top: 0;
+        margin-left:-80px;
+        padding-top: -10px;
         font-size: 1.6rem;
     }
     .copied_icon{
@@ -111,6 +130,10 @@ form{
     }
     .shorturl_container p{
         padding-top: 15px;
+    }
+    .shorturl_container{
+        margin-bottom: 20px;
+        margin-left:-10px;
     }
 
   }

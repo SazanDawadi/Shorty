@@ -1,0 +1,17 @@
+.footer_wrapper{
+    height:6vh;
+    text-align: center;
+    justify-content: center;
+    margin-top: 0;
+}
+
+.footer_wrapper a{
+    font-weight: bolder;
+    color:#43927a;
+    font-size: 1.2rem;
+}
+
+.footer_wrapper p{
+    font-size: 1.1rem;
+    font:bold;
+}

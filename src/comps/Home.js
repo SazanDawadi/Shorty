@@ -95,14 +95,18 @@ function Home() {
                                 {isCopied && (
                                     <MdCheck className = "copied_icon" onClick ={() => setIsCopied(!isCopied) } />
                                 )}
+
                             </div>
-                            
                         </CopyToClipboard>
+
+                        
                     </div>
-                    
+                 
+                 
                 )}
 
             </form>
+            
         </div>
     )
 }
