@@ -9,6 +9,8 @@
     justify-content: center;
 
 }
+
+
 .container h1{
     font-size:2.5rem;
     margin-bottom: 3px;
@@ -22,7 +24,6 @@
 }
 .loader{
     margin-top:25px;
-    color: #43927a;
 }
 
 form{
@@ -31,6 +32,7 @@ form{
 }
 #home_input{
     width: 25vw;
+    border-color: greenyellow;
 }
 #home_btn{
     margin:auto;
@@ -69,12 +71,17 @@ form{
     transform: scale(1.07);
   }
 
+.display_error{
+    color: red;
+    margin-top: 10px;
+    margin-bottom: 0px;
+}
 
 
-  @media screen and (max-width: 480px) {
+  @media screen and (max-width: 720px) {
 
     .container{
-        width:100vw;
+        width:80vw;
         margin:auto;
     }
     .container p{
@@ -96,10 +103,14 @@ form{
 
     .copy_icon, .copied_icon{
         margin-left:-100px;
+        padding-top: 0;
         font-size: 1.6rem;
     }
     .copied_icon{
         font-size: 1.7rem;
+    }
+    .shorturl_container p{
+        padding-top: 15px;
     }
 
   }
