@@ -14,9 +14,11 @@ const HTTP_URL_VALIDATOR_REGEX = /(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=
 function Home() {
     const [url, setUrl] =  useState('');
     const [shrtUrl,setShrtUrl] = useState('');
-    const[isLoading, setIsLoading] = useState(false);
-    const[isCopied, setIsCopied] = useState(false);
-    const[isValidUrl, setIsValidUrl] = useState(true);
+    const [isLoading, setIsLoading] = useState(false);
+    const [isCopied, setIsCopied] = useState(false);
+    const [isValidUrl, setIsValidUrl] = useState(true);
+    const [displayCopied, setDisplayCopied] = useState(false)
+
 
       // Link Validation Function
     const validateUrl = (string) => {
@@ -90,10 +92,18 @@ function Home() {
                         <CopyToClipboard  text={shrtUrl}>
                             <div>
                                 {!isCopied && (
-                                    <FaRegClone className = "copy_icon" onClick ={() => setIsCopied(!isCopied) } />
+                                    <FaRegClone className = "copy_icon" onClick ={() =>{ setIsCopied(!isCopied);
+                                    setDisplayCopied(!displayCopied);
+                                    setTimeout(() => {
+                                        setDisplayCopied(false);
+                                        
+                                    }, 6000);
+                                    } } />
                                 )}
                                 {isCopied && (
-                                    <MdCheck className = "copied_icon" onClick ={() => setIsCopied(!isCopied) } />
+                                    <MdCheck className = "copied_icon" onClick ={() =>{ setIsCopied(!isCopied);
+
+                                } } />
                                 )}
 
                             </div>
@@ -104,6 +114,12 @@ function Home() {
                  
                  
                 )}
+
+                {displayCopied && (
+                    <button className = "copied_alert">Copied to your clipboard!</button>
+                )}
+
+                
 
             </form>
             

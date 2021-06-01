@@ -93,6 +93,33 @@ form{
     color: red !important;
 }
 
+.copied_alert{
+    border: none;
+    position: fixed;
+    padding-left:40px;
+    padding-right: 40px;
+    padding-top: 13px;
+    padding-bottom: 13px;
+    top:88vh;
+    left:75vw ;
+    font-size: 1.1rem;
+    background-color: rgba(188, 243, 226, 0.6) ;
+    color: rgb(47, 47, 47);
+    font-weight:400;
+    transition: transform 100ms ease-in;
+    letter-spacing: 0.09rem;
+
+}
+
+/* @media screen and (max-width: 1080px){
+    .copied_alert{
+        display:flex;
+        top:80vh;
+        left:65vw;
+        margin-top: 15px;
+    }
+} */
+
 
   @media screen and (max-width: 720px) {
 
@@ -134,6 +161,13 @@ form{
     .shorturl_container{
         margin-bottom: 20px;
         margin-left:-10px;
+    }
+
+    .copied_alert{
+        display:flex;
+        top:80vh;
+        left:15vw;
+        margin-top: 15px;;
     }
 
   }
